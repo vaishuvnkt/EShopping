@@ -58,7 +58,7 @@
 
 			<!-- loading home page -->
 			<c:if test="${userClickHome == true }">
-				<%@include file="./shared/home.jsp"%>
+				<%@include file="home.jsp"%>
 			</c:if>
 
 			<!-- loads when user clicks About us -->
