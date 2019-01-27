@@ -8,10 +8,15 @@ $(function(){
 	case 'Contact us':
 		$('#contact').addClass('active');//contact - id for contact us page given in navbar.jsp
 		break;
+	case 'All Products':
+		$('#listProducts').addClass('active');//listProducts - id for view products page page given in navbar.jsp
+		break;
 	default:
-		$('#home').addClass('active');//home - id for home page given in navbar.jsp; Shows Online Shopping menu as active menu in menu bar 
-	
-	
+		if(menu == "Home")
+			break;
+		$('#listProducts').addClass('active');//home - id for listProducts page given in navbar.jsp; Shows Online Shopping menu as active menu in menu bar 
+		$('#a_'+menu).addClass('active');//active menu category tab
+		break;
 	
 	}
 

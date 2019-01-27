@@ -3,10 +3,14 @@ package model.entity;
 public class Category {
 
 	//private fields
+	
+	
 	private int id;
 	private String name;
 	private String Description;
+	//@Column(name = "imageURL")
 	private String imageurl;
+	//@Column(name = "isActive")
 	private boolean active = true;
 	
 	//active fields
@@ -41,7 +45,10 @@ public class Category {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
-	
+	/*@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", Description=" + Description + ", imageurl=" + imageurl
+				+ ", active=" + active + "]";
+	}*/
 
 }

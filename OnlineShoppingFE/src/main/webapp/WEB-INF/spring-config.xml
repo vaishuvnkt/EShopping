@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans:beans
 	xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -17,7 +18,9 @@
 
 	<!-- loading static resources -->
 	<annotation-driven />
-	<resources mapping="/resources/**" location="/assets/" /><!-- for bootstrap since bootstrap folders are stored in assets folder location is given as assets -->
+	<resources mapping="/resources/**" location="/assets/" /><!-- 
+		for bootstrap since bootstrap folders are stored in assets folder location 
+		is given as assets -->
 	<!-- ........................ -->
 
 
@@ -27,7 +30,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan	base-package="controller" />
+	<context:component-scan base-package="controller" />
 	<context:component-scan	base-package="model.daoimpl" />
 
+	
 </beans:beans>

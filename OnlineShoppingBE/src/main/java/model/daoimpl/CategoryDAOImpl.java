@@ -9,8 +9,7 @@ import model.dao.ICategoryDAO;
 import model.entity.Category;
 
 
-
-@Repository("catDAO")
+@Repository //to avoid unsatisfied dependency
 public class CategoryDAOImpl implements ICategoryDAO {
 
 	private static List<Category> cat = new ArrayList<Category>();
@@ -47,12 +46,22 @@ public class CategoryDAOImpl implements ICategoryDAO {
 		c.setActive(true);
 		cat.add(c);
 	}
-	
-	
-	
+
+	public Category get(int id)
+	{
+		//for each statement
+		for(Category categories : cat)
+		{
+			if(categories.getId() == id)
+				return categories;
+		}
+		return null;
+	}
+
 	public List<Category> list() {
 		// TODO Auto-generated method stub
 		return cat;
 	}
+
 
 }
