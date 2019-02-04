@@ -31,7 +31,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="controller" />
-	<context:component-scan	base-package="model.daoimpl" />
+	<context:component-scan	base-package="model" />
 
 	
 </beans:beans>

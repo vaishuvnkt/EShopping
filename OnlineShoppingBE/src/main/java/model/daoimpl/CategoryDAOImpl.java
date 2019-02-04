@@ -1,67 +1,89 @@
 package model.daoimpl;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import model.dao.ICategoryDAO;
 import model.entity.Category;
 
 
-@Repository //to avoid unsatisfied dependency
+@Repository("catDAO")//to avoid unsatisfied dependency
+@Transactional
 public class CategoryDAOImpl implements ICategoryDAO {
 
-	private static List<Category> cat = new ArrayList<Category>();
+	@Autowired
+	private SessionFactory sf;
+		public Category get(int id)
+	{
+		return sf.getCurrentSession().get(Category.class, Integer.valueOf(id));
+	}
+
+	public List<Category> list() 
+	{
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+		
+		Query query = sf.getCurrentSession().createQuery(selectActiveCategory);
+				
+		query.setParameter("active", true);
+						
+		return query.getResultList();
+
+	}
+
 	
-	static
-	{
-		//first category
+	public boolean add(Category c) {
 		
-		Category c = new Category();
-		c.setId(1);
-		c.setName("Television");
-		c.setImageurl("CAT_1.png");
-		c.setDescription("This is some description abt television");
-		c.setActive(true);
-		cat.add(c);
-		
-		//second category
-		
-		c = new Category();
-		c.setId(2);
-		c.setName("Laptop");
-		c.setImageurl("CAT_2.png");
-		c.setDescription("This is some description abt laptop");
-		c.setActive(true);
-		cat.add(c);
-		
-		//third category
-		
-		c = new Category();
-		c.setId(3);
-		c.setName("Mobile");
-		c.setImageurl("CAT_3.png");
-		c.setDescription("This is some description abt mobile");
-		c.setActive(true);
-		cat.add(c);
-	}
-
-	public Category get(int id)
-	{
-		//for each statement
-		for(Category categories : cat)
+		try 
 		{
-			if(categories.getId() == id)
-				return categories;
+			sf.getCurrentSession().persist(c);
+			return true;
 		}
-		return null;
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	public boolean update(Category c) {
+
+		try
+		{
+			// update the category to the database table
+			sf.getCurrentSession().update(c);
+			return true;
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
-	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return cat;
+	public boolean delete(Category c) {
+		
+		c.setActive(false);
+		
+		try 
+		{
+			// setting active status false instead of delete the category to the database table
+			sf.getCurrentSession().delete(c);
+			return true;
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
 	}
-
 
 }
+
+
