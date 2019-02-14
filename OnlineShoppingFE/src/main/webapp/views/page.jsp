@@ -19,7 +19,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Online Shopping - ${title}</title>
+<title>Gorgeous You - ${title}</title>
 
 <script>
 	window.menu = '${title}';
@@ -29,7 +29,7 @@
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Theme CSS -->
-<link href="${css}/bootstrap-project1-theme.css" rel="stylesheet">
+<link href="${css}/template-theme-yeti.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">

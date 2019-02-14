@@ -116,9 +116,9 @@ private static AnnotationConfigApplicationContext context;
 
 		
 		// fetching and updating the category
-		c = catDAO.get(2);
+		//c = catDAO.get(1);
 		
-		//c.setName("TV");
+		//c.setName("Women");
 		
 		//assertEquals("Successfully updated a single category in the table!",true,catDAO.update(c));
 		
