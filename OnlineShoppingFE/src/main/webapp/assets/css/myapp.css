@@ -11,7 +11,7 @@ html{
 }
 
 body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 100px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	height: 100%;
 }
 
@@ -84,3 +84,12 @@ footer { /* footer element*/
 	height: 60px;
 }
 /*---------------------------------------*/
+
+.dataTableImg
+{
+	
+	width: 100px;
+	height: 100px;
+	
+}
+

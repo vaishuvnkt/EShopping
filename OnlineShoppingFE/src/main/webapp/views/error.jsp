@@ -5,8 +5,6 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Gorgeous You - ${title}</title>
+<title>${title}</title>
 
 <script>
 	window.menu = '${title}';
@@ -56,43 +54,40 @@
 
 
 		<!-- Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class = "navbar-brand" href = "${contextRoot}/"> Back to HomePage</a>
+				</div>
+			</div>	
+		</nav>
 
 
-		<!-- Page Content -->
-
-		<div class="content">  <!-- to avoid footer prblm wrap the page content in class called content -->
-
-			<!-- loading home page -->
-			<c:if test="${userClickHome == true }">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<!-- loads when user clicks About us -->
-			<c:if test="${userClickAbout == true }">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- loads when user clicks Contact us -->
-			<c:if test="${userClickContact == true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
+		<div class = "content">
+		
+			<div class = "container">
 			
-			<!-- loads when user clicks product page -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-			
-			<!-- loads when user clicks show product icon in all products page -->
-			<c:if test="${userClickShowProduct == true }">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
-
+				<div class = "row">
+				
+					<div class = "col-xs-12">
+					
+						<div class = "jumbotron">
 						
-
+							<h1>${errorTitle}</h1>
+							<hr/>
+							
+							<blockquote style = "word-wrap : break-word">${errorDescription}</blockquote>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+			
+			</div>
+		
 		</div>
-
-		<!-- /.container -->
 
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
