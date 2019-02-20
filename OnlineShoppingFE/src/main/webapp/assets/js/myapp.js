@@ -11,6 +11,9 @@ $(function(){
 	case 'All Products':
 		$('#listProducts').addClass('active');//listProducts - id for view products page page given in navbar.jsp
 		break;
+	case 'Manage Items':
+		$('#manageProducts').addClass('active');//manageProducts - id for manage products page page given in navbar.jsp
+		break;
 	default:
 		if(menu == "Home")
 			break;

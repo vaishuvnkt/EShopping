@@ -33,7 +33,7 @@
 
  
 <!-- Bootstrap Theme CSS -->
-<link href="${css}/template-theme-yeti.css" rel="stylesheet">
+<link href="${css}/template-theme.css" rel="stylesheet">
 
 <!-- Bootstrap DataTable jQuery -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
@@ -88,6 +88,11 @@
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
 
+
+			<!-- loads when user clicks manage product page -->
+			<c:if test="${userClickManageProducts == true}">
+				<%@include file="manageProducts.jsp"%>
+			</c:if>
 						
 
 		</div>
