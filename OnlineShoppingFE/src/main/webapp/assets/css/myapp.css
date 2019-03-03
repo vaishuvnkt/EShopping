@@ -108,7 +108,8 @@ footer { /* footer element*/
 	
 }
 
-/*toggle switch*/
+/*Toggle Switch code*/
+
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -118,7 +119,7 @@ footer { /* footer element*/
 }
 
 /* Hide default HTML checkbox */
-/*.switch input {display:none;}*/
+.switch input {display:none;}
 
 /* The slider */
 .slider {
@@ -149,9 +150,9 @@ input:checked + .slider {
   background-color: #2196F3;
 }
 
-/*input:focus + .slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
-}*/
+}
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
