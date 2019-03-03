@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,10 +26,10 @@ public class Product {
 	@JsonIgnore
 	private String description;
 	@Column(name="unit_price")
+	@Min(value = 1, message = "Minimum price should be 1")
 	private int unitPrice;
 	private int quantity;
 	@Column(name="is_active")
-	@JsonIgnore
 	private boolean active;
 	@JsonIgnore
 	@Column(name="category_id")
@@ -35,6 +39,16 @@ public class Product {
 	private int supplierID;
 	private int purchases;
 	private int views;
+	
+	@Transient
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	public int getId() {
 		return id;
 	}

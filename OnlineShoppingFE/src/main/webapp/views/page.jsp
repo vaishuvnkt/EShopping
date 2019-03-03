@@ -116,8 +116,10 @@
 		
 		<!-- datatables bootstrap js -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
-		
-		
+
+		<!-- bootbox js -->
+		<script src="${js}/bootbox.min.js"></script>
+			
 		<!-- Self coded JavaScript File -->
 		<script src="${js}/myapp.js"></script>
 		<!-- used for active menu -->

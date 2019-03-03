@@ -1,5 +1,8 @@
 package exception;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,18 +44,18 @@ public class GlobalDefaultExceptionHandler {
 		/* 
 		 * 
 		 * for debugging purpose
-		 * 
-		 * StringWriter sw = new StringWriter();
-		 * PrintWriter pw = new PrintWriter(sw);
-		 * 
-		 * ex.printStackTrace(pw);
-		 * mv.addObject("errorDescription",sw);
-		 * 
-		 * 
-		 * */
+		 */ 
+		  StringWriter sw = new StringWriter();
+		  PrintWriter pw = new PrintWriter(sw);
+		  
+		  ex.printStackTrace(pw);
+		  mv.addObject("errorDescription",sw);
+		 
+		  
+		 
 
 		mv.addObject("errorTitle" , "Error");
-		mv.addObject("errorDescription" , "The page you are looking for is not available...Please check your URL for mistakes and try again");
+		//mv.addObject("errorDescription" , "The page you are looking for is not available...Please check your URL for mistakes and try again");
 		mv.addObject("title" , "Error");
 
 		/*
@@ -62,6 +65,9 @@ public class GlobalDefaultExceptionHandler {
 		 * mv.addObject("errorDescription",ex.toString());
 		 * 
 		 * */
+
+		 //mv.addObject("errorDescription",ex.toString());
+
 		
 		return mv;
 	}
