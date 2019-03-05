@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans:beans
 	xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:wf="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans 
@@ -13,17 +13,10 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
-
-	<!-- loading static resources -->
-	<annotation-driven />
-	<resources mapping="/resources/**" location="/assets/" /><!-- 
-		for bootstrap since bootstrap folders are stored in assets folder location 
-		is given as assets -->
-	<!-- ........................ -->
-
-
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/webflow-config 
+		http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+		
 	<beans:bean id = "viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/views/" />
@@ -37,5 +30,42 @@
 	<context:component-scan	base-package="model" />
 	<context:component-scan base-package="exception" />
 	
+
+		<!-- loading static resources -->
+	<annotation-driven />
+	<resources mapping="/resources/**" location="/assets/" /><!-- 
+		for bootstrap since bootstrap folders are stored in assets folder location 
+		is given as assets -->
+	<!-- ........................ -->
+
+		
+	<wf:flow-executor id = "flowExecutor" />
 	
+	<wf:flow-registry id = "flowRegistry" base-path = "/views/flows" flow-builder-services = "flowBuilderServices">
+		<wf:flow-location-pattern value="/*/*-flow.xml"/>
+	</wf:flow-registry>
+	
+	<wf:flow-builder-services id = "flowBuilderServices"
+	
+		view-factory-creator = "viewFactoryCreator"
+		validator = "validator" 
+	
+	/>
+	
+	<beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<beans:property name="flowExecutor" ref="flowExecutor" />
+	</beans:bean>
+	
+	<beans:bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<beans:property name="flowRegistry" ref="flowRegistry" />
+		<beans:property name="order" value="-1" />
+	</beans:bean>	
+	
+   	<beans:bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+         <beans:property name="viewResolvers" ref="viewResolver" />
+ 	</beans:bean>	
+ 	
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/> 	
+	
+		
 </beans:beans>

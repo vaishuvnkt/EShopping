@@ -146,7 +146,6 @@ $(function() {
 		}, 3000)
 
 	}
-});
 	// ---------------------------------------
 
 
@@ -317,3 +316,43 @@ if ($adminProTable.length)// length of table != null
 
 
 // --------------------
+
+//validating the product form element	
+// fetch the form element
+$categoryForm = $('#categoryForm');
+
+if($categoryForm.length) {
+	
+	($categoryForm).validate({			
+			rules: {
+				name: {
+					required: true,
+					minlength: 5
+				},
+				Description: {
+					required: true,
+					minlength: 5					
+				}				
+			},
+			messages: {					
+				name: {
+					required: 'Category name required',
+					minlength: 'Enter atleast five characters'
+				},
+				Description: {
+					required: 'Category description',
+					minlength: 'Enter atleast five characters'
+				}					
+			},
+			errorElement : "em",
+			errorPlacement : function(error, element) {
+				//errorPlacement(error, element);
+					//add the css class of help-block
+					error.addClass('help-block');
+					//add the error element after input block
+					error.insertAfter(element);
+
+			}				
+		});
+}
+});

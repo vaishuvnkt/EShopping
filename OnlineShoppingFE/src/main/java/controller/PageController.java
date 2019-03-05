@@ -125,4 +125,15 @@ public class PageController {
 		
 	}
 
+	//having similar mapping for 2 modules
+	//order property in spring-config file has a value -1 which means first priority should be given to flow similar mapping is present
+	@RequestMapping(value= {"/register"})
+	public ModelAndView register()
+	{
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title","About us");
+		//mv.addObject("userClickAbout",true);
+		return mv;
+	}
+
 }

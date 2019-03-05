@@ -18,7 +18,11 @@
 					<li id="listProducts"><a href="${contextRoot}/show/all/products">ThePlaza</a></li>
 					<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>
 					<li id="manageProducts"><a href="${contextRoot}/manage/products">Manage Items</a></li>
+				</ul>
 				
+				<ul class = "nav navbar-nav navbar-right ">
+					<li id="register"><a href="${contextRoot}/register">Sign Up</a></li>
+					<li id="login"><a href="${contextRoot}/login">Sign In</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

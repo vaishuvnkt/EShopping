@@ -63,7 +63,7 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 
-		// properties.put("hibernate.hbm2ddl.auto", "create");
+		properties.put("hibernate.hbm2ddl.auto", "update"); // the property is given as create since we are performing testing operations the table dont get saved permanently after finalizing we can change the property to update
 
 		return properties;
 	}
