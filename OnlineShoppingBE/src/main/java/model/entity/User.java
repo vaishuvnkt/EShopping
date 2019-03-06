@@ -1,5 +1,7 @@
 package model.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +13,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_detail")
-public class User {
+public class User implements Serializable {
+	//any class used in spring webflow should implement Serializable interface
 
+	/**
+	 * serial version id should be  generated since we are implementing serializable interface
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
