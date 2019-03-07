@@ -20,8 +20,9 @@ public class Cart implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	//------------------
-	@OneToOne//relation between user table and cart table // the name of the attribute created by this relation is objname(user)_primarykeyOfTheUserTable(id) => user_id
+
 	//@JoinColumn(name = "uid") this annotation is used to change the name of the column created by the relation onetoone
+	@OneToOne//relation between user table and cart table // the name of the attribute created by this relation is objname(user)_primarykeyOfTheUserTable(id) => user_id
 	private User user;
 	
 	public User getUser() {

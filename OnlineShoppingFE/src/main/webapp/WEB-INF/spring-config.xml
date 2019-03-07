@@ -71,7 +71,8 @@
    	<beans:bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
          <beans:property name="viewResolvers" ref="viewResolver" />
  	</beans:bean>	
- 	
+
+	<!-- validator bean --> 	
 	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/> 	
 	
 		

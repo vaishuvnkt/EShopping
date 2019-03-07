@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Address implements Serializable {
@@ -41,8 +42,11 @@ public class Address implements Serializable {
 	private String state;
 	private String country;
 	@Column(name = "postal_code")
+	@Size(min=6, max =  6, message = "Please enter entire PIN code")
 	private String postalCode;
+	@Column(name = "is_billing")
 	private boolean billing;
+	@Column(name = "is_shipping")
 	private boolean shipping;
 	@Column(name = "user_id")
 	private int userId;

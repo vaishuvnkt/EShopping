@@ -69,6 +69,16 @@
 						</div>
 
 						<div class="form-group">
+							<label class="control-label col-md-4">Password</label>
+							<div class="col-md-8">
+								<sf:input type="password" path="confirmPassword" class="form-control"
+									placeholder="Confirm Password" />
+								<sf:errors path="confirmPassword" cssClass="help-block" element="em" />
+							</div>
+						</div>
+
+
+						<div class="form-group">
 							<label class="control-label col-md-4">Select Role</label>
 							<div class="col-md-8">
 								<label class="radio-inline"> <sf:radiobutton path="role"

@@ -1,6 +1,9 @@
 package handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
+import org.springframework.binding.message.MessageResolver;
 import org.springframework.stereotype.Component;
 
 import flow.model.RegisterModel;
@@ -38,7 +41,7 @@ public class RegisterHandler {
 		//fetch user
 		User user = model.getUser();
 		
-		if(user.getRole().equals("ROLE"))
+		if(user.getRole().equals("USER"))
 		{
 			Cart cart = new Cart();
 			cart.setUser(user);
@@ -58,5 +61,25 @@ public class RegisterHandler {
 		
 		return transitionValue;
 	}
-	
+
+	public String validateUser(User user, MessageContext error)
+	{
+		
+		String transitionValue = "success";
+
+		//check the uniqueness of email
+		if(userDAO.getByEmail(user.getEmail()) != null)
+		{
+			error.addMessage(new MessageBuilder().error().source("email").defaultText("Email id already registered").build());
+			transitionValue = "failure";
+		}
+		
+		if(!user.getPassword().equals(user.getConfirmPassword()))
+		{
+			error.addMessage(new MessageBuilder().error().source("confirmPassword").defaultText("Password does not match with confirm Password ").build());
+			transitionValue = "failure";
+		}
+		return transitionValue;
+		
+	}
 }

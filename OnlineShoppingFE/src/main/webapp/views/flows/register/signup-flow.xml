@@ -14,11 +14,19 @@
 	
 	<!-- start state -->
 	<view-state id = "personal" view = "flows/register/signup-personal" model = "user"><!-- model value is used as modelAttribute in spring form -->
-		<transition on = "billing" to = "billing" /><!-- to billing view state -->
+		<transition on = "billing" to = "validate" /><!-- to billing view state -->
 		<on-exit>
 			<evaluate expression="registerHandler.addUser(flowScope.registerModel , user)" />
 		</on-exit>
 	 </view-state>
+	 
+	 <action-state id="validate">
+	 
+	 	<evaluate expression="registerHandler.validateUser(user,messageContext)" />
+	 	<transition on = "success" to = "billing" />
+	 	<transition on = "failure" to = "personal" />
+	 	
+	 </action-state>
 	 
 	<view-state id = "billing" view = "flows/register/signup-billing" model = "billing">
 		<transition on = "personal" to = "personal" />
@@ -44,7 +52,7 @@
 	
 	<!-- global transition -->
 	<global-transitions>
-		<transition on = "home" to = "home"/>
+		<transition on = "home" to = "home" validate="false "/>
 	</global-transitions>
 
 </flow>
