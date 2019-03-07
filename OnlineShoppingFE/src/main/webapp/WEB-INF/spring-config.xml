@@ -31,9 +31,8 @@
 	<context:annotation-config />
 	<context:component-scan base-package="handler" />
 	<context:component-scan base-package="flow.model" />
-	
-	<context:component-scan base-package="controller" />
 	<context:component-scan	base-package="model" />
+	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="exception" />
 	
 	
