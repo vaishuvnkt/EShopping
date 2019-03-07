@@ -35,6 +35,8 @@ public class Cart implements Serializable {
 	private double grandTotal;
 	@Column(name = "cart_lines")
 	private int cartLines;
+	@Column(name = "user_id")
+
 	public int getId() {
 		return id;
 	}
@@ -56,7 +58,7 @@ public class Cart implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", user=" + user + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
+		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
 	}
 	
 }

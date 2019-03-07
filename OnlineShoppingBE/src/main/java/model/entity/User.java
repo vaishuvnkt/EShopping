@@ -2,14 +2,16 @@ package model.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.CascadeType;
+
 
 @Entity
 @Table(name = "user_detail")
@@ -34,15 +36,15 @@ public class User implements Serializable {
 	private String password;
 	private boolean enabled = true;
 	
-	@OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Cart cart;
-	
 	public Cart getCart() {
 		return cart;
 	}
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
+	
 	public int getId() {
 		return id;
 	}

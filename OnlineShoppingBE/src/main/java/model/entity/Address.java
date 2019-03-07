@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Address implements Serializable {
@@ -22,15 +21,15 @@ public class Address implements Serializable {
 	private int id;
 	
 	//----------------------------------//
-	@ManyToOne
-	private User user;
+	//@ManyToOne
+	//private User user;
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	//public User getUser() {
+		//return user;
+	//}
+	//public void setUser(User user) {
+	//	this.user = user;
+	//}
 	
 	//------------------------------------//
 	
@@ -45,8 +44,15 @@ public class Address implements Serializable {
 	private String postalCode;
 	private boolean billing;
 	private boolean shipping;
+	@Column(name = "user_id")
+	private int userId;
 	
-	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	public int getId() {
 		return id;
 	}

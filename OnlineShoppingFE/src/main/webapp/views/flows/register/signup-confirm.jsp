@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- header -->
 <%@include file="../shared/flows-header.jsp"%>
 			
@@ -23,7 +24,7 @@
 						<h3>Name : <strong>${registerModel.user.firstname} ${registerModel.user.lastname}</strong></h3>
 						<h4>Email : <strong>${registerModel.user.email}</strong></h4>
 						<h4>Contact : <strong>${registerModel.user.contactNumber}</strong></h4>
-						<h4>Role : <strong>${registerModel.user.role}</strong></h4>
+						<h4>Role : <strong>${registerModel.user.role}</strong></h4>	
 					</div>
 					
 					<!-- anchor tag to move to personal details page to edit -->
@@ -57,7 +58,7 @@
 						<p>${registerModel.billing.state}</p>
 						<p>${registerModel.billing.country}</p>
 					</div>		
-		
+
 			<!-- anchor tag to move to billing address page to edit -->
 			<p>
 				<a href = "${flowExecutionUrl}&_eventId_billing" class = "btn btn-primary">Edit</a>
@@ -76,7 +77,7 @@
 		<div class = "text-center">
 		
 			<!-- anchor tag to move to success page -->
-			<a href = "${flowExecutionUrl}&_eventId_success" class = "btn btn-primary">Confirm Submission</a>
+			<a href = "${flowExecutionUrl}&_eventId_submit" class = "btn btn-primary">Confirm Submission</a>
 		
 		</div>
 	

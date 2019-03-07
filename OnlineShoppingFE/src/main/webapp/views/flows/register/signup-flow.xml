@@ -5,30 +5,42 @@
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
 	<var  name = "user" class = "model.entity.User" />
-
 	<var  name = "billing" class = "model.entity.Address" />
 
+	<on-start>
+		<evaluate expression="registerHandler.init()" result = "flowScope.registerModel" />
+	</on-start>
+	
+	
 	<!-- start state -->
 	<view-state id = "personal" view = "flows/register/signup-personal" model = "user"><!-- model value is used as modelAttribute in spring form -->
 		<transition on = "billing" to = "billing" /><!-- to billing view state -->
+		<on-exit>
+			<evaluate expression="registerHandler.addUser(flowScope.registerModel , user)" />
+		</on-exit>
 	 </view-state>
 	 
 	<view-state id = "billing" view = "flows/register/signup-billing" model = "billing">
 		<transition on = "personal" to = "personal" />
 		<transition on = "confirm" to = "confirm" />
+	 	<on-exit>
+	 		<evaluate expression="registerHandler.addBilling(flowScope.registerModel , billing)" />
+	 	</on-exit>
 	 </view-state>
 	 
-	<view-state id = "confirm" view = "flows/register/signup-confirm">
+	<view-state id = "confirm" view = "flows/register/signup-confirm" model = "flowScope.registerModel">
 		<transition on = "personal" to = "personal" />
 		<transition on = "billing" to = "billing" />
-		<transition on = "success" to = "success" />	
+		<transition on = "submit" to = "submit" />	
 	 </view-state>
 
-
-	<!-- end state -->
+ 	<action-state id="submit">
+		<evaluate expression="registerHandler.saveAll(flowScope.registerModel)" />
+		<transition on = "success" to = "success" />
+	</action-state>
+ 
 	<end-state id = "home" view = "externalRedirect:contextRelative:/" />
-	<end-state id = "success" view = "flows/register/signup-success" />
-	
+    <end-state id = "success" view = "flows/register/signup-success" />
 	
 	<!-- global transition -->
 	<global-transitions>

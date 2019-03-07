@@ -26,9 +26,16 @@
 	<beans:bean id = "multipartResolver"
 		class = "org.springframework.web.multipart.support.StandardServletMultipartResolver " />
 
+
+	<!-- For scaning the packages to avoid spring-webflow error -->
+	<context:annotation-config />
+	<context:component-scan base-package="handler" />
+	<context:component-scan base-package="flow.model" />
+	
 	<context:component-scan base-package="controller" />
 	<context:component-scan	base-package="model" />
 	<context:component-scan base-package="exception" />
+	
 	
 
 		<!-- loading static resources -->
@@ -38,11 +45,11 @@
 		is given as assets -->
 	<!-- ........................ -->
 
-		
+   	
 	<wf:flow-executor id = "flowExecutor" />
-	
+		  	
 	<wf:flow-registry id = "flowRegistry" base-path = "/views/flows" flow-builder-services = "flowBuilderServices">
-		<wf:flow-location-pattern value="/*/*-flow.xml"/>
+		<wf:flow-location-pattern value="/**/*-flow.xml"/>
 	</wf:flow-registry>
 	
 	<wf:flow-builder-services id = "flowBuilderServices"
