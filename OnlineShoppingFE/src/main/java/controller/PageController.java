@@ -142,6 +142,20 @@ public class PageController {
 		
 	}
 
+	@RequestMapping(value= {"/access-denied"})
+	public ModelAndView accessDenied()
+	{
+		
+		ModelAndView mv = new ModelAndView("error"); //error.jsp created for handling global exception 
+		
+		mv.addObject("title","403 - Access Denied");
+		mv.addObject("errorTitle","Access Denied");
+		mv.addObject("errorDescription","You are not authorized to access this page");
+		
+		return mv;
+		
+	}
+
 	//having similar mapping for 2 modules
 	//order property in spring-config file has a value -1 which means first priority should be given to flow similar mapping is present
 /*	@RequestMapping(value= {"/register"})
