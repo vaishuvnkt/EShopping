@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import exception.ProductNotFoundException;
@@ -53,6 +54,22 @@ public class PageController {
 		return mv;
 	}
 	
+	@RequestMapping(value= {"/login"})
+	public ModelAndView login(@RequestParam(name = "error" , required = false)String error)
+	{
+		
+		ModelAndView mv = new ModelAndView("login");
+		
+		if(error != null)
+		{
+			mv.addObject("message","Invalid username and password");
+		}
+		
+		mv.addObject("title","Sign in");
+		return mv;
+		
+	}
+
 	@RequestMapping(value= {"/contact"})
 	public ModelAndView contact()
 	{

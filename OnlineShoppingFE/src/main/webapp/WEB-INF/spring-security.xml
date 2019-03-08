@@ -10,10 +10,17 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 	<context:component-scan	base-package="model" />
+	
+	<!-- to permit access to static resources like css,js etc -->
+	<http pattern = "/resources/**" security = "none"/>
+	
+	<!-- order should be same bcoz all viewers have authority to login page nd only users have authority to other pages -->
 	<http>
-		<intercept-url pattern="/**" access="hasAuthority('USER')" />
-		<form-login />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/**" access="hasAuthority('USER')" />		
+		<form-login login-page="/login" />
 		<logout />
+		<!-- <csrf disabled = "true" /> used to disable csrf protection which is not recommended -->
 	</http>
 	<authentication-manager>
 		<authentication-provider>

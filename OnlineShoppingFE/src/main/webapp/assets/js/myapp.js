@@ -32,6 +32,24 @@ $(function() {
 
 	}
 
+	//to tackle csrf problem eg: activation and deactivation of problem
+	
+	var token =  $('meta[name = "_csrf"]').attr('content');
+	var header =  $('meta[name = "_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0)
+		{
+		
+			//to set the token header for ajax request
+			$(document).ajaxSend(function(e, xhr, options)//e-event xhr-xml http request(soul of ajax request)
+					{
+						xhr.setRequestHeader(header,token);
+					});
+		
+		}
+	
+	//-----------------------------------------------------------------
+	
 	/*
 	 * var products = [
 	 * 
@@ -355,4 +373,42 @@ if($categoryForm.length) {
 			}				
 		});
 }
+
+//validations for login form
+//jQuery validation is used to provide consistent validation across the web
+var $loginForm = $('#loginForm');
+
+if($loginForm.length) {
+	
+	($loginForm).validate({			
+			rules: {
+				username: {
+					required: true,
+					email: true
+				},
+				password: {
+					required: true,
+					      } 				
+			},
+			messages: {					
+				username: {
+					required: 'Username required',
+					email: 'Email id is not valid'
+				},
+				password: {
+					required: 'Password description',
+					}					
+			},
+			errorElement : "em",
+			errorPlacement : function(error, element) {
+				//errorPlacement(error, element);
+					//add the css class of help-block
+					error.addClass('help-block');
+					//add the error element after input block
+					error.insertAfter(element);
+
+			}				
+		});
+}
+
 });

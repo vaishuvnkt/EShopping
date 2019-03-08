@@ -18,6 +18,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+<!-- for ajax request to activate and deactivate products -->
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
+
 
 <title>Gorgeous You - ${title}</title>
 
