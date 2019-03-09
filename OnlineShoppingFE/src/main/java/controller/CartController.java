@@ -28,10 +28,12 @@ public class CartController {
 			switch(result)
 			{
 			
-				case "updated" : mv.addObject("message", "Cart updated successfully");break;
+				case "updated" :  mv.addObject("message", "Cart updated successfully");break;
 				case "error" : mv.addObject("message", "Failed to update cart");break;
-				case "deleted" : mv.addObject("message", "Cartline deleted");
-				
+				case "deleted" : mv.addObject("message", "Cartline deleted");break;
+				case "added" : mv.addObject("message", "Product added to Cart successfully");break;
+				case "maximum" : mv.addObject("message", "Quantity reached its maximum of 3");break;
+				case "unavailable" : mv.addObject("message", "Product unavailable");break;
 			}
 		}
 		
@@ -53,6 +55,13 @@ public class CartController {
 	public String updateCart(@PathVariable int cartLineId)
 	{
 		String response = cartService.deleteCartLine(cartLineId);
+		return "redirect:/cart/show?"+response; 
+	}
+	
+	@RequestMapping("/add/{productId}/product")
+	public String addCart(@PathVariable int productId)
+	{
+		String response = cartService.addCartLine(productId);
 		return "redirect:/cart/show?"+response; 
 	}
 }
