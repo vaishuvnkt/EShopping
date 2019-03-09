@@ -20,6 +20,9 @@ $(function() {
 												// manage products page page
 												// given in navbar.jsp
 		break;
+	case 'Cart':
+		$('#userCart').addClass('active'); 
+		break;
 	default:
 		if (menu == "Home")
 			break;
