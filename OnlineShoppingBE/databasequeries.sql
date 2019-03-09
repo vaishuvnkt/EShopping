@@ -80,3 +80,17 @@ CREATE TABLE cart (
 	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id ) REFERENCES user_detail (id),
 	CONSTRAINT pk_cart_id PRIMARY KEY (id)
 );
+
+-- the cart line table to store the cart details
+
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id ) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);

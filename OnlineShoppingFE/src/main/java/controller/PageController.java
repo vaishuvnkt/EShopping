@@ -1,9 +1,15 @@
 
 package controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +61,7 @@ public class PageController {
 	}
 	
 	@RequestMapping(value= {"/login"})
-	public ModelAndView login(@RequestParam(name = "error" , required = false)String error)
+	public ModelAndView login(@RequestParam(name = "error" , required = false)String error, @RequestParam(name = "logout", required = false)String logout)
 	{
 		
 		ModelAndView mv = new ModelAndView("login");
@@ -63,6 +69,10 @@ public class PageController {
 		if(error != null)
 		{
 			mv.addObject("message","Invalid username and password");
+		}
+		if(logout != null)
+		{
+			mv.addObject("logout","User Logged Out");
 		}
 		
 		mv.addObject("title","Sign in");
@@ -156,6 +166,19 @@ public class PageController {
 		
 	}
 
+	@RequestMapping(value = {"/perform-logout"})
+	public String logout(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth != null)
+		{
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/login?logout";
+		
+	}
+	
 	//having similar mapping for 2 modules
 	//order property in spring-config file has a value -1 which means first priority should be given to flow similar mapping is present
 /*	@RequestMapping(value= {"/register"})

@@ -1,5 +1,7 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="container">
 
 	<div class="row">
@@ -74,7 +76,7 @@
 
 							<div class="col-md-8">
 
-								<sf:textarea path="description" id="desc" rows="4" cols = ""
+								<sf:textarea path="description" id="desc" rows="4" cols=""
 									placeholder="Write description"></sf:textarea>
 
 							</div>
@@ -112,8 +114,8 @@
 
 						<div class="form-group">
 
-							<label class="control-label col-md-4" for="file">Upload
-								a file</label>
+							<label class="control-label col-md-4" for="file">Upload a
+								file</label>
 
 							<div class="col-md-8">
 
@@ -136,15 +138,17 @@
 									id="categoryID" items="${Categories}" itemLabel="name"
 									itemValue="id" />
 
-								<c:if test = "${product.id == 0}">
-								
-								<div class = "text-right">
-									<br />
-									<button type = "button" data-toggle = "modal" data-target = "#myCategoryModal" class = "btn btn-primary btn-xs">Add new Category</button>
-								</div>
-								
+								<c:if test="${product.id == 0}">
+
+									<div class="text-right">
+										<br />
+										<button type="button" data-toggle="modal"
+											data-target="#myCategoryModal" class="btn btn-primary btn-xs">Add
+											new Category</button>
+									</div>
+
 								</c:if>
-								
+
 							</div>
 
 						</div>
@@ -189,46 +193,51 @@
 
 		<div class="col-xs-12">
 
-			<div style="overflow: auto">
+			<div class="container-fluid">
 
-				<!-- Product table for admin -->
-				<table id="adminProductsTable" class="table table-striped table-bordered">
+				<div class="table-responsive">
 
-					<thead>
+					<!-- Product table for admin -->
+					<table id="adminProductsTable"
+						class="table table-striped table-bordered">
 
-						<tr>
+						<thead>
 
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Cost</th>
-							<th>Active</th>
-							<th>Edit</th>
+							<tr>
 
-						</tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Cost</th>
+								<th>Active</th>
+								<th>Edit</th>
 
-					</thead>
+							</tr>
 
-					<tfoot>
+						</thead>
 
-						<tr>
+						<tfoot>
 
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>brand</th>
-							<th>Quantity</th>
-							<th>Cost</th>
-							<th>Active</th>
-							<th>Edit</th>
+							<tr>
 
-						</tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>brand</th>
+								<th>Quantity</th>
+								<th>Cost</th>
+								<th>Active</th>
+								<th>Edit</th>
 
-					</tfoot>
+							</tr>
 
-				</table>
+						</tfoot>
+
+					</table>
+
+				</div>
 
 			</div>
 
@@ -236,55 +245,62 @@
 
 	</div>
 
-	<div class = "modal fade" id = "myCategoryModal" role = "dialog" tabindex = "-1">
-	
-		<div class = "modal-dialog" role = "document">
-		
-			<div class = "modal-content">
-				
-				<div class = "modal-header">
-					<button type = "button" class = "close" data-dismiss = "modal">
+	<div class="modal fade" id="myCategoryModal" role="dialog"
+		tabindex="-1">
+
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
 						<span>&times;</span>
 					</button>
-					<h4 class = "modal-title">New Category</h4>
+					<h4 class="modal-title">New Category</h4>
 				</div>
-			
-				<div class = "modal-body">
-				
-					<sf:form id = "categoryForm" modelAttribute = "category" action = "${contextRoot}/manage/category" method = "POST" class = "form-horizontal">
-						<div class = "form-group">
-						
-							<label for = "cat_name" class = "control-label col-md-4">Category Name</label>
-							<div class = "col-md-8">
-								<sf:input type = "text" path = "name" id = "cat_name" class = "form-control" />
+
+				<div class="modal-body">
+
+					<sf:form id="categoryForm" modelAttribute="category"
+						action="${contextRoot}/manage/category" method="POST"
+						class="form-horizontal">
+						<div class="form-group">
+
+							<label for="cat_name" class="control-label col-md-4">Category
+								Name</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="name" id="cat_name"
+									class="form-control" />
 							</div>
-						
+
 						</div>
-						
-						<div class = "form-group">
-						
-							<label for = "cat_Description" class = "control-label col-md-4">Category Description</label>
-							<div class = "col-md-8">
-								<sf:textarea cols = "" rows = "5" path = "Description" id = "cat_Description" class = "form-control" />
+
+						<div class="form-group">
+
+							<label for="cat_Description" class="control-label col-md-4">Category
+								Description</label>
+							<div class="col-md-8">
+								<sf:textarea cols="" rows="5" path="Description"
+									id="cat_Description" class="form-control" />
 							</div>
-						
+
 						</div>
-						
-						<div class = "form-group">
-						
-							<div class = "col-md-offset-4 col-md-8">
-								<input type = "submit" value = "Add" class = "btn btn-primary" />
+
+						<div class="form-group">
+
+							<div class="col-md-offset-4 col-md-8">
+								<input type="submit" value="Add" class="btn btn-primary" />
 							</div>
-						
+
 						</div>
-						
+
 					</sf:form>
 				</div>
-				
-			</div>	
-		
+
+			</div>
+
 		</div>
-	
+
 	</div>
 
 </div>

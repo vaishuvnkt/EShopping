@@ -60,7 +60,7 @@ public class UserDAOImpl implements IUserDAO {
 			return sf.getCurrentSession().createQuery(selectQuery, User.class).setParameter("email", email)
 					.getSingleResult();
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace(); we commented printStackTrace() to avoid no entity exception when user page is loaded without logging in
 			return null;
 		}
 	}

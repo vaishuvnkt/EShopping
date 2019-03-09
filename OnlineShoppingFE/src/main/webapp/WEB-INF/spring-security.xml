@@ -34,7 +34,7 @@
 		<!-- when users try to access manageProducts or admin try to access cart it should redirect you to error page -->
 		<access-denied-handler error-page="/access-denied"/>
 				
-		<logout />
+		<!-- <logout /> this tag is removed. since csrf protection is enabled in our Application we cannot use this logout filter tag. we need to have a particular form to perform logout operation -->
 		
 		<!-- <csrf disabled = "true" /> used to disable csrf protection which is not recommended -->
 	
