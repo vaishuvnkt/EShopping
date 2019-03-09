@@ -42,17 +42,6 @@ public class UserDAOImpl implements IUserDAO {
 	}
 
 	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sf.getCurrentSession().update(cart);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
-
-	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email";
 

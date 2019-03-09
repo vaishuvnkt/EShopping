@@ -24,6 +24,4 @@ public interface IUserDAO {
 	//Address getBillingAddress(int user_id);
 	//List<Address> getShippingAddresses(int user_id);
 	
-	//to update cart details to db when user adds item to cartS 
-	boolean updateCart(Cart cart);
 }
