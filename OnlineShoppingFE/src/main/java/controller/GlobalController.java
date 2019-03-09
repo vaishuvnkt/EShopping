@@ -38,7 +38,7 @@ public class GlobalController {
 			{
 				userModel = new UserModel();
 				userModel.setId(user.getId());
-				userModel.setFullName(user.getFirstname() + " " + user.getLastname());
+				userModel.setFullName("Hi!! " + user.getFirstname());
 				userModel.setEmail(user.getEmail());
 				userModel.setRole(user.getRole());
 			

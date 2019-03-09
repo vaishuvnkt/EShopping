@@ -427,4 +427,32 @@ if($loginForm.length) {
 		});
 }
 
+//------------------------------------------
+//handling the event of refresh button click	
+
+$('button[name="refreshCart"]').click(function(){
+	var cartLineId = $(this).attr('value');
+	var countField = $('#count_' + cartLineId);
+	var originalCount = countField.attr('value');
+	// do the checking only the count has changed
+	if(countField.val() !== originalCount) {	
+		// check if the quantity is within the specified range
+		if(countField.val() < 1 || countField.val() > 3) {
+			// set the field back to the original field
+			countField.val(originalCount);
+			bootbox.alert({
+				size: 'medium',
+		    	title: 'Error',
+		    	message: 'Product Count should be minimum 1 and maximum 3!'
+			});
+		}
+		else {
+			// use the window.location.href property to send the request to the server
+			var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + countField.val();
+			window.location.href = updateUrl;
+		}
+	}
+});
+
+//-------------------------------------------
 });
