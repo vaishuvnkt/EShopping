@@ -76,6 +76,23 @@ public class CartService {
 		}
 	
 	}
+
+	public String deleteCartLine(int cartLineId) {
+		
+		//fetch cartline
+		CartLine cartLine = cartLineDAO.get(cartLineId);
+
+		//update the cart first before removing cartLine bcoz the info will not be available about the cartline after getting deleted so we cannot perform modifications 
+		Cart cart = this.getCart();
+		cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
+		cart.setCartLines(cart.getCartLines() - 1);
+		cartLineDAO.updateCart(cart);
+		
+		//remove cartline
+		cartLineDAO.delete(cartLine);
+		
+		return "result=deleted";
+	}
 	
 }
  
