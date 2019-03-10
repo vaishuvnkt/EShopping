@@ -55,6 +55,8 @@
 
 <body>
 
+	<div class="se-pre-con"></div><!-- for loading gif -->
+
 	<div class="wrapper"> <!-- to avoid footer prblm wrap the whole body in class called wrapper -->
 
 

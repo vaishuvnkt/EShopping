@@ -1,4 +1,12 @@
 $(function() {
+	
+	// for adding a loader
+	$(window).load(function(){
+		setTimeout(function() {
+			$(".se-pre-con").fadeOut("slow");
+		}, 500);			
+	});	
+	
 	// solving active menu problem
 	switch (menu) { // menu -> window.menu in page.jsp
 
