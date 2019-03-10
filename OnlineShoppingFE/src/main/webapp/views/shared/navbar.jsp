@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,8 +21,33 @@
 				<li id="listProducts"><a
 					href="${contextRoot}/show/all/products">ThePlaza</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>
-				<security:authorize access = "hasAuthority('ADMIN')">
-					<li id="manageProducts"><a href="${contextRoot}/manage/products">Manage Items</a></li>
+				
+				<c:if test = "${userClickHome == true}" >
+
+				<li class="dropdown" id="a_category"><a
+					href="javascript:void(0)"
+					class="btn btn-primary dropdown-toggle"
+					id="dropdownMenu1" data-toggle="dropdown">Categories<span
+						class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li>
+							<c:forEach items="${categories}" var="category">
+									<a href="${contextRoot}/show/${category.id}/products"
+										class="list-group-item" id="a_${category.name}">${category.name}</a>
+									<li class="divider" role="seperator"></li>
+							</c:forEach>
+						</li>
+					</ul>
+
+					</li>
+
+				</c:if>	
+
+				<security:authorize access="hasAuthority('ADMIN')">
+					<li id="manageProducts"><a
+						href="${contextRoot}/manage/products">Manage Items</a></li>
 				</security:authorize>
 			</ul>
 
@@ -34,10 +60,11 @@
 
 				<security:authorize access="isAuthenticated()">
 
-					<li class="dropdown" id = "userCart"><a href="javascript:void(0)"
-						class="btn btn-primary btn-default dropdown-toggle" id="dropdownMenu1"
-						data-toggle="dropdown"> ${userModel.fullName}<span
-							class="caret"></span>
+					<li class="dropdown" id="userCart"><a
+						href="javascript:void(0)"
+						class="btn btn-primary btn-default dropdown-toggle"
+						id="dropdownMenu1" data-toggle="dropdown">
+							${userModel.fullName}<span class="caret"></span>
 					</a>
 
 						<ul class="dropdown-menu">
@@ -66,5 +93,5 @@
 
 
 <script>
-	window.userRole = '${userModel.role}'; 
+	window.userRole = '${userModel.role}';
 </script>

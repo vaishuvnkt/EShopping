@@ -2,11 +2,7 @@
 
 	<div class="row">
 
-		<div class="col-md-3">
-			<%@include file="./shared/sidebar.jsp" %>
-		</div>
-
-		<div class="col-md-9">
+		<div class="col-md-12">
 
 			<div class="row carousel-holder">
 
@@ -21,16 +17,16 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image" src="http://placehold.it/800x300"
-									alt="">
+								<img class="slide-image" src="${images}/bobbi-brown.jpg"
+									alt="Bobbi Brown - New Crushed Liquid LipStick">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300"
-									alt="">
+								<img class="slide-image" src="${images}/huda_beauty.jpg"
+									alt="Huda Beauty Obsessions - Mini Eye Shadow">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300"
-									alt="">
+								<img class="slide-image" src="${images}/mac.jpg"
+									alt="MAC - Strobe Cream">
 							</div>
 						</div>
 						<a class="left carousel-control" href="#carousel-example-generic"

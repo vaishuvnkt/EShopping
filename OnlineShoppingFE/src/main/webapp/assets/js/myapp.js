@@ -22,17 +22,16 @@ $(function() {
 		break;
 	case 'Cart':
 		$('#userCart').addClass('active'); 
-		break;
+		break;		
 	default:
 		if (menu == "Home")
-			break;
-		$('#listProducts').addClass('active');// home - id for listProducts
+			break;								// comments for if clause
+	$('#a_category').addClass('active');		// active menu category tab
+	break;											
 												// page given in navbar.jsp;
 												// Shows Online Shopping menu as
 												// active menu in menu bar
-		$('#a_' + menu).addClass('active');// active menu category tab
-		break;
-
+	
 	}
 
 	//to tackle csrf problem eg: activation and deactivation of problem
