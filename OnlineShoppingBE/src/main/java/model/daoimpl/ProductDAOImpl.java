@@ -100,5 +100,15 @@ public class ProductDAOImpl implements IProductDAO{
 
 	}
 
+	@Override
+	public List<Product> getProductsByParam(String param, int count) {
+	
+		String query = "FROM Product WHERE active = true ORDER BY " + param + " DESC";
+
+		return sf.getCurrentSession().createQuery(query, Product.class).setFirstResult(0).setMaxResults(count)
+				.getResultList();
+
+	}
+
 
 }

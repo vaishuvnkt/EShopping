@@ -17,11 +17,15 @@ public interface IUserDAO {
 	//to add address in db
 	boolean addAddress(Address address);
 	
-	Address getBillingAddress(User user);
-	List<Address> getShippingAddresses(User user);
+	//Address getBillingAddress(User user);
+	//List<Address> getShippingAddresses(User user);
 	
 	//alternative to above 2 methods
-	//Address getBillingAddress(int user_id);
-	//List<Address> getShippingAddresses(int user_id);
+	Address getBillingAddress(int userId);
+	List<Address> getShippingAddresses(int userId);
+
+	User get(int id);
 	
+	Address getAddress(int addressId);
+	boolean updateAddress(Address address);
 }

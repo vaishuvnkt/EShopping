@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.entity.Cart;
 import model.entity.CartLine;
+import model.entity.OrderDetail;
 
 public interface ICartLineDAO {
 
@@ -20,6 +21,9 @@ public interface ICartLineDAO {
 	
 	//to update cart details to db when user adds item to cartS 
 	boolean updateCart(Cart cart);
+
+	// adding order details
+	boolean addOrderDetail(OrderDetail orderDetail);
 
 	
 }

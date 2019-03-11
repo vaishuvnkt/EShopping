@@ -19,7 +19,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Gorgeous You - ${title}</title>
+<title>Gorgeous You</title>
 
 <script>
 	window.menu = '${title}';

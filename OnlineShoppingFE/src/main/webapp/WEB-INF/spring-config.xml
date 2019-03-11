@@ -34,10 +34,10 @@
 	<context:component-scan	base-package="model" />
 	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="exception" />
-	
+		
 	
 
-		<!-- loading static resources -->
+	<!-- loading static resources -->
 	<annotation-driven />
 	<resources mapping="/resources/**" location="/assets/" /><!-- 
 		for bootstrap since bootstrap folders are stored in assets folder location 

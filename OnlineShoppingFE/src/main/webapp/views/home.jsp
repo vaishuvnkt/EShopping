@@ -17,8 +17,8 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image" src="${images}/bobbi-brown.jpg"
-									alt="Bobbi Brown - New Crushed Liquid LipStick">
+								<img class="slide-image" src="${images}/maybelline.jpg"
+									alt="MayBelline NewYork - Fit Me Foundation">
 							</div>
 							<div class="item">
 								<img class="slide-image" src="${images}/huda_beauty.jpg"

@@ -31,7 +31,8 @@ public class GlobalController {
 		{
 			// add the user model
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			
+			if(!authentication.getPrincipal().equals("anonymousUser"))
+			{
 			User user = userDAO.getByEmail(authentication.getName());
 			
 			if(user != null)
@@ -50,6 +51,8 @@ public class GlobalController {
 			session.setAttribute("userModel",userModel);
 			return userModel;
 			}
+		}
+	
 		}
 		
 		return (UserModel)session.getAttribute("userModel");

@@ -34,6 +34,13 @@ public class CartController {
 				case "added" : mv.addObject("message", "Product added to Cart successfully");break;
 				case "maximum" : mv.addObject("message", "Quantity reached its maximum of 3");break;
 				case "unavailable" : mv.addObject("message", "Product unavailable");break;
+				case "modified" : mv.addObject("message", "One or more items modified in cart");break;
+			}
+		}
+		else {
+			String response = cartService.validateCartLine();
+			if(response.equals("result=modified")) {
+				mv.addObject("message", "One or more items inside cart has been modified!");
 			}
 		}
 		
@@ -64,4 +71,19 @@ public class CartController {
 		String response = cartService.addCartLine(productId);
 		return "redirect:/cart/show?"+response; 
 	}
+	
+	/* after validating it redirect to checkout
+	 * if result received is success proceed to checkout 
+	 * else display the message to the user about the changes in cart page
+	 * */	
+	@RequestMapping("/validate")
+	public String validateCart() {	
+		String response = cartService.validateCartLine();
+		if(!response.equals("result=success")) {
+			return "redirect:/cart/show?"+response;
+		}
+		else {
+			return "redirect:/cart/checkout";
+		}
+	}	
 }

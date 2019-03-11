@@ -36,7 +36,6 @@ public class Cart implements Serializable {
 	private double grandTotal;
 	@Column(name = "cart_lines")
 	private int cartLines;
-	@Column(name = "user_id")
 
 	public int getId() {
 		return id;

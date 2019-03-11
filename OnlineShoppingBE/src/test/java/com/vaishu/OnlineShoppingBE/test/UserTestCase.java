@@ -172,12 +172,12 @@ public class UserTestCase {
 
 */
 
-	@Test
+/*	@Test
 	public void testGetAddresses()
 	{
 		user = userDAO.getByEmail("dprs@gmail.com");
 		assertEquals("Failed to get billing addresses","Mumbai",userDAO.getBillingAddress(user).getCity());
 		assertEquals("Failed to get the shipping addresses",2,userDAO.getShippingAddresses(user).size());
 	}
-
+*/
 }

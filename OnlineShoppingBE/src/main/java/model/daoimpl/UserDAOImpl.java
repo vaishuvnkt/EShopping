@@ -54,7 +54,7 @@ public class UserDAOImpl implements IUserDAO {
 		}
 	}
 
-	@Override
+	/*@Override
 	public Address getBillingAddress(User user) {
 		String selectQuery = "FROM Address WHERE user  = :user AND billing = :billing";
 		try {
@@ -77,6 +77,62 @@ public class UserDAOImpl implements IUserDAO {
 			ex.printStackTrace();
 			return null;
 		}
+
+	}
+*/
+	@Override
+	public User get(int id) {
+		try {			
+			return sf.getCurrentSession().get(User.class, id);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public Address getAddress(int addressId) {
+
+		try {			
+			return sf.getCurrentSession().get(Address.class, addressId);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+
+		try {			
+			sf.getCurrentSession().update(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
+
+	@Override
+	public Address getBillingAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
+		try {
+			return sf.getCurrentSession().createQuery(selectQuery, Address.class).setParameter("userId", userId)
+					.setParameter("isBilling", true).getSingleResult();
+		}
+		catch(Exception ex) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Address> getShippingAddresses(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
+		return sf.getCurrentSession().createQuery(selectQuery, Address.class).setParameter("userId", userId)
+				.setParameter("isShipping", true).getResultList();
 
 	}
 

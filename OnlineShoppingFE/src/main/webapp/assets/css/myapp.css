@@ -168,7 +168,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 .table-responsive
 {
 	overflow-x : inherit;
@@ -231,4 +230,30 @@ input:checked + .slider:before {
 		height:100%;
 		z-index:9999;
 		background:url(../images/pre-loader.gif) 50% no-repeat #ffe6f7
+}
+
+.has-success {
+	color: #4582ec;
+}
+
+/* cart checkout */
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+/* order receipt */
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+    border-top: 2px solid;
 }
