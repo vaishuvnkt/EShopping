@@ -31,7 +31,7 @@
 
  
 <!-- Bootstrap Theme CSS -->
-<link href="${css}/template-theme-yeti.css" rel="stylesheet">
+<link href="${css}/template-theme-journal.css" rel="stylesheet">
 
 <!-- Bootstrap DataTable jQuery -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">

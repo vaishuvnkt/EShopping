@@ -34,7 +34,7 @@ $(function() {
 	default:
 		if (menu == "Home")
 			break;								// comments for if clause
-	$('#a_category').addClass('active');		// active menu category tab
+	$('#a_'+menu).addClass('active');		// active menu category tab
 	break;											
 												// page given in navbar.jsp;
 												// Shows Online Shopping menu as

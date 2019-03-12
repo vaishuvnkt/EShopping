@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -26,8 +26,8 @@
 
 				<li class="dropdown" id="a_category"><a
 					href="javascript:void(0)"
-					class="btn btn-primary dropdown-toggle"
-					id="dropdownMenu1" data-toggle="dropdown">Categories<span
+					class="dropdown-toggle"
+					id="dropdownMenu1" data-toggle="dropdown">Categories <span
 						class="caret"></span>
 				</a>
 
@@ -35,8 +35,8 @@
 						<li>
 							<c:forEach items="${categories}" var="category">
 									<a href="${contextRoot}/show/${category.id}/products"
-										class="list-group-item" id="a_${category.name}">${category.name}</a>
-									<li class="divider" role="seperator"></li>
+										 id="a_${category.name}">${category.name}</a>
+									
 							</c:forEach>
 						</li>
 					</ul>
@@ -53,18 +53,18 @@
 
 			<ul class="nav navbar-nav navbar-right ">
 				<security:authorize access="isAnonymous()">
-					<li id="register"><a href="${contextRoot}/register">Sign
+					<li id="register"><a href="${contextRoot}/register"><span class="glyphicon glyphicon-user"></span> Sign
 							Up</a></li>
-					<li id="login"><a href="${contextRoot}/login">Sign In</a></li>
+					<li id="login"><a href="${contextRoot}/login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 				</security:authorize>
 
 				<security:authorize access="isAuthenticated()">
 
 					<li class="dropdown" id="userCart"><a
 						href="javascript:void(0)"
-						class="btn btn-primary btn-default dropdown-toggle"
-						id="dropdownMenu1" data-toggle="dropdown">
-							${userModel.fullName}<span class="caret"></span>
+						class="dropdown-toggle"
+						id="dropdownMenu1" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+							 ${userModel.fullName}<span class="caret"></span>
 					</a>
 
 						<ul class="dropdown-menu">
