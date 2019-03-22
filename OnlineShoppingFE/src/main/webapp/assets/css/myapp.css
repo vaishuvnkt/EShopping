@@ -11,7 +11,7 @@ html{
 }
 
 body {
-    padding-top: 100px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	height: 100%;
 }
 
@@ -257,3 +257,10 @@ input:checked + .slider:before {
 .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
+
+/*font*/
+/* 
+.css-selector {
+  font-family: 'Margarine', serif;
+  font-family: 'Lobster', serif;
+} */

@@ -33,13 +33,10 @@ $(function() {
 		break;		
 	default:
 		if (menu == "Home")
-			break;								// comments for if clause
-	$('#a_'+menu).addClass('active');		// active menu category tab
-	break;											
-												// page given in navbar.jsp;
-												// Shows Online Shopping menu as
-												// active menu in menu bar
-	
+			break;
+		$('#listProducts').addClass('active');
+		$('#a_' + menu).addClass('active');
+		break;
 	}
 
 	//to tackle csrf problem eg: activation and deactivation of problem
@@ -285,7 +282,7 @@ if ($adminProTable.length)// length of table != null
 									str += '<input type="checkbox" value="'+row.id+'" />';		
 								}
 								
-								str += '<div class="slider"></div>';
+								str += '<div class="slider round"></div>';
 
 								str += '</label>';
 								
