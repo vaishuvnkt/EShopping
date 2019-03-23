@@ -15,10 +15,17 @@ body {
 	height: 100%;
 }
 
+
+.landingImg {
+	width: auto;
+	height : 150px;
+}
+
 /*-----------------------*/
 
 .slide-image {
     width: 100%;
+    height: 50%;
 }
 
 .carousel-holder {
@@ -257,10 +264,3 @@ input:checked + .slider:before {
 .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
-
-/*font*/
-/* 
-.css-selector {
-  font-family: 'Margarine', serif;
-  font-family: 'Lobster', serif;
-} */
