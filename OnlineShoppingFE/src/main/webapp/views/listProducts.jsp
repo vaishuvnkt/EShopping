@@ -65,8 +65,8 @@
 				<div class="row">
 					<div class="col-xs-12">
 
-						<div class="container-fluid">
-
+						<div class = "container-fluid">
+						
 							<div class="table-responsive">
 
 								<table id="productListTable"

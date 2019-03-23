@@ -137,7 +137,7 @@ $(function() {
 											+ window.contextRoot
 											+ '/show/'
 											+ data
-											+ '/product" class = "btn btn-primary"> <span class = "glyphicon glyphicon-eye-open"></span> </a> &#160; '; // &#160;
+											+ '/product" class = "btn btn-primary"> <span class = "glyphicon glyphicon-eye-open"></span> </a>'; // &#160;
 																																						// html
 									if(userRole == 'ADMIN')
 									{

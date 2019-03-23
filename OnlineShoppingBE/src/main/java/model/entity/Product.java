@@ -30,7 +30,6 @@ public class Product implements Serializable {
 	private String code;
 	private String name;
 	private String brand;
-	@JsonIgnore
 	private String description;
 	@Column(name="unit_price")
 	@Min(value = 1, message = "Minimum price should be 1")

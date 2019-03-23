@@ -16,16 +16,16 @@ body {
 }
 
 
-.landingImg {
-	width: auto;
+.landImg {
+	width: 150px;
 	height : 150px;
 }
 
 /*-----------------------*/
 
 .slide-image {
-    width: 100%;
-    height: 50%;
+    height: 192%;
+	width: 100%;
 }
 
 .carousel-holder {
@@ -48,6 +48,7 @@ body {
 
 .thumbnail img {
     width: 100%;
+    height: 300px;
 }
 
 .ratings {
@@ -61,7 +62,7 @@ body {
 }
 
 .thumbnail .caption-full {
-    padding: 9px;
+    padding: 15px;
     color: #333;
 }
 
