@@ -78,7 +78,7 @@
 			<security:authorize access ="hasAuthority('ADMIN')">
 			
 				<a href="${contextRoot}/manage/${product.id}/product"
-					class="btn btn-warning"> <span
+					class="btn btn-info"> <span
 					class="glyphicon glyphicon-pencil"> </span> Edit Item details 
 				</a>
 			

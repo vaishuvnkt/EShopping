@@ -145,7 +145,7 @@ $(function() {
 										+ window.contextRoot
 										+ '/manage/'
 										+ data
-										+ '/product" class = "btn btn-warning"> <span class = "glyphicon glyphicon-pencil"></span> </a>';
+										+ '/product" class = "btn btn-info"> <span class = "glyphicon glyphicon-pencil"></span> </a>';
 									}
 									
 									else
